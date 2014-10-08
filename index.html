@@ -43,8 +43,8 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Little Python</h1>
-					<h3>Making things go beep and boop.</h3>
+					<h1>Python @ Eagle Eye</h1>
+					<h3>How we use python at Eagle Eye Networks.</h3>
 					<p>
 						<small>Created by <a href="http://mcottondesign.com">Mark Cotton</a> / <a href="http://twitter.com/mcotton">@mcotton</a></small>
 					</p>
@@ -53,275 +53,101 @@
 				<section>
 					<h2>Who am I?</h2>
 					<p>
-						I am Mark Cotton.  I am a big nerd.  I do programmer-y stuff.  Eagle Eye Networks gives me money to programmer-y stuff.
-					</p>
-				</section>
-
-				<section>
-					<h2>What am I doing here?</h2>
-					<p>
-						Embedded microprocessors are cool but not normally programmed with Python.
+						I am Mark Cotton.  I am a big nerd.  I do programmer-y stuff.  Eagle Eye Networks gives me money to programmer-y stuff. [we're hiring]
 					</p>
 				</section>
 
 				<section>
 					<section id="fragments">
-						<h2>Python</h2>
-						<p>Is awesome...</p>
+						<h2>Eagle Eye Networks</h2>
+						<p>
+							Video Security in the Cloud
+						</p>
 						<ul>
-							<li class="fragment">Dynamic</li>
-							<li class="fragment">Powerful</li>
-							<li class="fragment">Fun</li>
-							<li class="fragment">Great Community</li>
-							<li class="fragment">Batteries included</li>
-							<li class="fragment">Rapid interations</li>
+							<li class="fragment">we have lots of dealers and customers</li>
+							<li class="fragment">with Thousands of cameras</li>
+							<li class="fragment">connected to Hundreds of bridge</li>
+							<li class="fragment">uploading TeraBytes of video each day</li>
 						</ul>
 					</section>
 				</section>
 
 				<section>
-					<section id="fragments">
-						<h2>Sensors</h2>
-						<p>Are awesome...</p>
-						<ul>
-							<li class="fragment">Buttons</li>
-							<li class="fragment">LEDs</li>
-							<li class="fragment">Motors</li>
-							<li class="fragment">Temperature</li>
-							<li class="fragment">Sonar</li>
-							<li class="fragment">Distance</li>
-							<li class="fragment">RFID</li>
-						</ul>
-					</section>
-				</section>
-
-				<section>
-					<h2>A Little History</h2>
+					<h2>Let's go back to 2012</h2>
 					<p>
+						<img src="img/timemachine.jpg">
 					</p>
 				</section>
 
 				<section>
-					<h2>Motorola dev board</h2>
+					<h2>Starting with Django</h2>
 					<p>
-						<ul>
-							<li>C/C++ with customer compiler</li>
-							<li>$5000+</li>
-							<li>Required NDAs and Electrical Engineering Degree</li>
-							<li>Purchased: 2000</li>
-						</ul>
-					</p>
-					<p>
-						Not practical to interface with Python.
+						<img src="img/djangoproject.png">
 					</p>
 				</section>
 
-				<section>
-					<h2>NetBurner</h2>
-					<p>
-						<ul>
-							<li>C/C++ with customer compiler</li>
-							<li>$300</li>
-							<li>Ethernet and Serial</li>
-							<li>Purchased: 2004</li>
-						</ul>
-					</p>
-					<p>
-						Inexpensive enough to talk over network/serial to Python
-					</p>
-				</section>
 
 				<section>
-					<h2>Phidgets</h2>
-					<p>
-						<ul>
-							<li>USB sensors to any machine, Python</li>
-							<li>$100</li>
-							<li>Easiest way to add sensors to a project</li>
-							<li>Purchased: 2008</li>
-						</ul>
-					</p>
-					<p>
-						Connect via USB, Python SDK
-					</p>
-				</section>
-
-				<section>
-					<h2>Synapse-Wireless</h2>
-					<p>
-						<ul>
-							<li>Python-esque implementation in SoC</li>
-							<li>$200</li>
-							<li>Wireless mesh networking, low power</li>
-							<li>Purchased: 2010</li>
-						</ul>
-					</p>
-					<p>
-						Run a limited version of Python directly.
-					</p>
-				</section>
-
-				<section>
-					<h2>Arduino</h2>
-					<p>
-						<ul>
-							<li>Sketch or C/C++</li>
-							<li>$30</li>
-							<li>Amazing Community, Documentation</li>
-							<li>Purchased: 2012</li>
-						</ul>
-					</p>
-					<p>
-						Control Android via firmata, allows usage of Android ecosystem.
-					</p>
-				</section>
-
-				<section>
-					<h2>Raspberry Pi</h2>
-					<p>
-						<ul>
-							<li>Complete linux distro, Python</li>
-							<li>$35</li>
-							<li>Awesome little computer, extremely powerful</li>
-							<li>Purchased: 2013</li>
-						</ul>
-					</p>
-				</section>
-
-				<section>
-					<h2>SparkCore</h2>
-					<p>
-						<ul>
-							<li>SoC with WiFi, cloud based API</li>
-							<li>$200</li>
-							<li>Just as easy as any REST API</li>
-							<li>Purchased: 2014</li>
-						</ul>
-					</p>
-					<p>
-						Access sensor data via URL GET /v1/devices/{DEVICE_ID}/{VARIABLE}
-					</p>
-				</section>
-
-				<section>
-					<h2>Phidgets Example</h2>
+					<h2>It almost writes itself</h2>
 					<pre><code data-trim contenteditable>
-from Phidgets.PhidgetException import *
-from Phidgets.Events.Events import *
-from Phidgets.Devices.InterfaceKit import *
-
-device.setOnSensorChangeHandler(sensorChanged)
-
-def sensorChanged(e):
-   if e.value > 0 and e.value < 301:
-     device.setOutputState(0, 1)
-     device.setOutputState(1, 0)
-     device.setOutputState(2, 0)
-   if e.value > 300 and e.value < 601:
-     device.setOutputState(0, 0)
-     device.setOutputState(1, 1)
-     device.setOutputState(2, 0)
-   if e.value > 601 and e.value < 999:
-     device.setOutputState(0, 0)
-     device.setOutputState(1, 0)
-     device.setOutputState(2, 1)
-
+$ django-admin.py startproject mysite
 					</code></pre>
+					<p>
+						<img src="img/dogatkeyboard.jpg">
+					</p>
 				</section>
 
 				<section>
-					<h2>Arduino Firmata Example</h2>
-					<pre><code data-trim contenteditable>
-import pyfirmata
-
-PIN = 12 # Pin 12 is used
-DELAY = 2 # A 2 seconds delay
-
-PORT = '/dev/ttyACM0'
-
-# Creates a new board
-board = pyfirmata.Arduino(PORT)
-
-# Loop for blinking the led
-while True:
-    board.digital[PIN].write(1) # Set the LED pin to 1 (HIGH)
-    board.pass_time(DELAY)
-    board.digital[PIN].write(0) # Set the LED pin to 0 (LOW)
-    board.pass_time(DELAY)
-
-</code></pre>
+					<h2>The Path Less Traveled</h2>
+					<ul>
+						<li>Developing API first</li>
+						<li>Real-time data stream</li>
+						<li>Tweaked ORM to use LDAP</li>
+						<li>HTTP requests between machines</li>
+					</ul>
 				</section>
 
 				<section>
-					<h2>Synapse-wireless Example</h2>
-					<pre><code data-trim contenteditable>
-
-from synapse.evalBase import *
-from synapse.pinWakeup import *
-from synapse.switchboard import *
-from synapse.platforms import *
-from synapse.hexSupport import *
-
-...
-
-def beep(length,Tone):
-    x = 0
-    setPinDir(GPIO_6,True)
-    while x < length:
-        x = x+1
-        pulsePin(GPIO_6,Tone,True)
-    setPinDir(GPIO_6,False)
-
-</code></pre>
+					<h2>Developing API First</h2>
+					<ul>
+						<li>Only expose a RESTful API</li>
+						<li>No rendering views on the servers</li>
+						<li>Everyone uses the same API [web, iOS, Android]</li>
+					</ul>
 				</section>
 
 				<section>
-					<h2>Spark-core Example</h2>
-					<pre><code data-trim contenteditable>
-
-/* FIRMWARE */
-int temperature = 0;
-
-void setup()
-{
-  Spark.variable("temperature", &temperature, INT);
-  pinMode(A0, INPUT);
-}
-
-void loop()
-{
-  temperature = analogRead(A0);
-}
-
-curl "https://api.spark.io/v1/devices/device/temperature?access_token=token"
-
-</code></pre>
+					<h2>Real-time data stream</h2>
+					<p>
+						Write smaller python clients to subscribe to poll stream for cameras.  Handle as much as possible as asynchonous requests.
+					</p>
+					<p>
+						<a href="http://apidocs.eagleeyenetworks.com">apidocs.eagleeyenetworks.com</a>
+					</p>
 				</section>
 
 				<section>
-					<h2>Front Door Twitter</h2>
-					<pre><code data-trim contenteditable>
+					<h2>Tweaked ORM to use LDAP</h2>
+					<p>
+						LDAP is document based, not relational, easily replicated and very fast on reads.  Add your own indexes and relationships.
+					</p>
+				</section>
 
-import twitter
+				<section>
+					<h2>HTTP Request between machines</h2>
+					<p>
+						GRequests allows you to use Requests with Gevent to make asyncronous HTTP Requests easily.  Same API we're already familiar with.
+					</p>
+					<p>
+						<a href="https://crate.io/packages/grequests/">https://crate.io/packages/grequests/</a>
+					</p>
+				</section>
 
-twit = twitter.Api(username=, password=)
-
-
-def interfaceKitInputChanged(e):
-    print "Input %i: %s" % (e.index, e.state)
-
-    if e.index == 4:
-        if interfaceKit.getInputState(e.index):
-            status = twit.PostUpdate('Front Door contact was open and now its closed')
-        else:
-            status = twit.PostUpdate('Front Door contact was closed and now its open')
-
-
-
-</code></pre>
-					<small>
-						<a href="http://www.instructables.com/id/Combining-security-system-with-phidges-and-twitter/">http://www.instructables.com/id/Combining-security-system-with-phidges-and-twitter/</a>
-					</small>
+				<section>
+					<h2>Videos are Funny</h2>
+					<p>
+						<iframe width="560" height="315" src="//www.youtube.com/embed/DHb61s4DA8k?list=PL0I1s8t0nPjTgorjyqnwQoZkKrEftiT5S" frameborder="0" allowfullscreen></iframe>
+					</p>
 				</section>
 
 				<section>
